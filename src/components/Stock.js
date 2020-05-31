@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Plot from 'react-plotly.js';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Stock() {
 
     const [stockXValues, setStockXValues] = useState([])
     const [stockYValues, setStockYValues] = useState([])
     const [symbol, setSymbol] = useState("SPY")
+    const [loading, setLoading] = useState(true)
+
+    const override = `
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    `;
 
 
     useEffect(() => {
@@ -14,7 +22,6 @@ function Stock() {
 
     const fetchStock = () => {
         const apiCall = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${process.env.REACT_API_ALPHA_API_KEY}`
-        
         fetch(apiCall)
         .then(response => response.json())
         .then(response => {
@@ -31,7 +38,7 @@ function Stock() {
                 setStockXValues(dates)
                 setStockYValues(opens)
             }
-        })
+        }).then(setLoading(false))
     }
 
     const handleSymbolChange = (event) => {
@@ -45,18 +52,26 @@ function Stock() {
 
   return (
     <div>
+        {loading ? 
+          <ClipLoader
+          css={override}
+          size={150}
+          color={"#123abc"}
+          /> 
+        :
         <Plot
         data={[
-          {
+        {
             x: stockXValues,
             y: stockYValues,
             type: 'scatter',
             mode: 'lines+markers',
             marker: {color: 'red'},
-          },
+        },
         ]}
         layout={ {width: 720, height: 340, title: `${symbol}`} }
-      />
+        />
+        }
          <form onSubmit={handleSubmit}>
         <label>
           Ticker:
