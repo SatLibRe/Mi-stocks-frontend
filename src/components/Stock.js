@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Plot from 'react-plotly.js';
 
 function Stock() {
 
@@ -31,7 +32,19 @@ function Stock() {
 
   return (
     <div>
-        {stockXValues.map(date => <p> {date} </p>)}
+        {/* {stockXValues.map(date => <p> {date} </p>)} */}
+        <Plot
+        data={[
+          {
+            x: stockXValues,
+            y: stockYValues,
+            type: 'scatter',
+            mode: 'lines+markers',
+            marker: {color: 'red'},
+          },
+        ]}
+        layout={ {width: 720, height: 340, title: ''} }
+      />
     </div>
   );
 }
