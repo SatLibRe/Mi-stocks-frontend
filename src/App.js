@@ -17,7 +17,7 @@ function App() {
     fetch("http://localhost:3000/api/tutorials")
     .then(response => response.json())
     .then(response => {
-      setBackside(response)
+      console.log(response)
     })
   },[]);
 

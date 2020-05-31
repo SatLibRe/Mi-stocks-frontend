@@ -10,8 +10,6 @@ function Stock() {
         fetchStock()
     }, []);
 
-    // https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=D0AZSV1R7TJHZJN2
-
     const fetchStock = () => {
         const symbol = "IBM"
         const apiCall = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${process.env.REACT_API_ALPHA_API_KEY}`
@@ -20,10 +18,14 @@ function Stock() {
         .then(response => response.json())
         .then(response => {
             let dates = []
-            Object.keys(response["Time Series (Daily)"]).map(date => {
-                 dates = [...dates,date]
-             })
+            let opens = []
+
+            for(const key in response["Time Series (Daily)"]){
+                dates.push(key)
+                opens.push(response["Time Series (Daily)"][key]["1. open"])
+            }
             setStockXValues(dates)
+            setStockYValues(opens)
         })
     }
 
