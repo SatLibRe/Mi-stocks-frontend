@@ -37,6 +37,19 @@
   }
 }
 
-.plotDiv {
-  
+.master-home-container{
+  display: grid;
+  grid-template-columns: 20% 60% 20% 
+}
+
+#user-info-div{
+  background-color: black;
+}
+
+#stock-list-div{
+  background-color: black;
+}
+
+#stock-div{
+  text-align: center;
 }

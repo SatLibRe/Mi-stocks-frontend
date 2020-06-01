@@ -25,6 +25,7 @@ function Stock() {
         fetch(apiCall)
         .then(response => response.json())
         .then(response => {
+            console.log(response)
             if(response["Error Message"]){
                 alert('That is not a Stock')
             } else {
@@ -51,7 +52,7 @@ function Stock() {
       }
 
   return (
-    <div>
+    <div id='stock-div'>
         {loading ? 
           <ClipLoader
           css={override}
@@ -69,10 +70,10 @@ function Stock() {
             marker: {color: 'red'},
         },
         ]}
-        layout={ {width: 720, height: 340, title: `${symbol}`} }
+        layout={{title: `${symbol}`} }
         />
         }
-         <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label>
           Ticker:
           <input type="text" value={symbol} onChange={handleSymbolChange} />

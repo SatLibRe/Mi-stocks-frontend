@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Stock from './components/Stock.js';
+import UserInfo from './containers/UserInfo';
+import StockList from './containers/StockList';
 
 
 // const result = dotenv.config()
-
-
 
 function App() {
 
@@ -22,8 +22,10 @@ function App() {
   },[]);
 
   return (
-    <div className="App">
+    <div className="master-home-container">
+      <UserInfo/>
       <Stock/>
+      <StockList/>
     </div>
   );
 }
