@@ -48,8 +48,21 @@
 
 #stock-list-div{
   background-color: yellow;
+  height: 100vh;
+  overflow: scroll;
 }
 
 #stock-div{
   text-align: center;
+}
+
+#stock-list-form{
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  color: white;
+}
+
+#stock-list-ul{
+  margin-top: 10%;
 }

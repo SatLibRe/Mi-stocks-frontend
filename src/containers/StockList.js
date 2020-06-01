@@ -31,7 +31,7 @@ function StockList() {
 
   return (
     <div id="stock-list-div">
-        <form>
+        <form id="stock-list-form">
             <label>
             Search:
             <input type="text" value={search} onChange={handleSearch} />
@@ -44,7 +44,7 @@ function StockList() {
         color={"#123abc"}
         /> 
         :
-        <ul>
+        <ul id="stock-list-ul">
             {filteredStocks.map(stock => <TickerCard stock={stock}/>)}
         </ul>
         }
