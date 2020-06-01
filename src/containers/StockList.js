@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TickerCard from "../components/TickerCard"
+import ClipLoader from "react-spinners/ClipLoader";
 
 function StockList() {
 
@@ -18,6 +19,12 @@ function StockList() {
         return stock.description.indexOf(search) != -1
     })
 
+    const override = `
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    `;
+
     const handleSearch = (e) => {
         setSearch(e.target.value.toUpperCase());
     }
@@ -30,9 +37,17 @@ function StockList() {
             <input type="text" value={search} onChange={handleSearch} />
             </label>
         </form>
+        {stocks.length < 1 ? 
+        <ClipLoader
+        css={override}
+        size={150}
+        color={"#123abc"}
+        /> 
+        :
         <ul>
             {filteredStocks.map(stock => <TickerCard stock={stock}/>)}
         </ul>
+        }
     </div>
   );
 }

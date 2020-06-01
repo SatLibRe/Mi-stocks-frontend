@@ -15,7 +15,6 @@ function Stock() {
     border-color: red;
     `;
 
-
     useEffect(() => {
         fetchStock()
     }, []);
@@ -43,7 +42,7 @@ function Stock() {
     }
 
     const handleSymbolChange = (event) => {
-        setSymbol(event.target.value);
+        setSymbol(event.target.value.toUpperCase());
       }
     
       const handleSubmit = (event) => {
