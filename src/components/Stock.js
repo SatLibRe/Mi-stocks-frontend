@@ -7,7 +7,6 @@ function Stock() {
     const [stockXValues, setStockXValues] = useState([])
     const [stockYValues, setStockYValues] = useState([])
     const [symbol, setSymbol] = useState("SPY")
-    const [loading, setLoading] = useState(true)
 
     const override = `
     display: block;
@@ -38,7 +37,7 @@ function Stock() {
                 setStockXValues(dates)
                 setStockYValues(opens)
             }
-        }).then(setLoading(false))
+        })
     }
 
     const handleSymbolChange = (event) => {
@@ -52,7 +51,7 @@ function Stock() {
 
   return (
     <div id='stock-div'>
-        {loading ? 
+        {stockXValues.length < 1 && stockYValues.length < 1 ? 
           <ClipLoader
           css={override}
           size={150}
