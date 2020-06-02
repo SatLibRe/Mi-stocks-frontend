@@ -25,6 +25,8 @@ function App() {
     <div className="master-home-container">
       <UserInfo/>
       <Stock/>
+      <Stock/>
+      <Stock/>
       <StockList/>
     </div>
   );
