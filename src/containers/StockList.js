@@ -8,7 +8,7 @@ function StockList() {
     const [search,setSearch] = useState("")
 
     useEffect(() => {
-        fetch(`https://finnhub.io/api/v1/stock/symbol?exchange=US&token=${process.env.REACT_APP_FIN_API_KEY}`)
+        fetch(`https://finnhub.io/api/v1/stock/symbol?exchange=US&token=brale9vrh5rbgnjpvb50`)
         .then(response => response.json())
         .then(response => {
             setStocks(response)

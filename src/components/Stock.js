@@ -7,6 +7,7 @@ function Stock() {
     const [stockXValues, setStockXValues] = useState([])
     const [stockYValues, setStockYValues] = useState([])
     const [symbol, setSymbol] = useState("SPY")
+    const [titleSymbol, setTitleSymbol] = useState("SPY")
 
     const override = `
     display: block;
@@ -47,6 +48,7 @@ function Stock() {
       const handleSubmit = (event) => {
         event.preventDefault();
         fetchStock()
+        setTitleSymbol(symbol)
       }
 
   return (
@@ -68,7 +70,7 @@ function Stock() {
             marker: {color: 'red'},
         },
         ]}
-        layout={{title: `${symbol}`} }
+        layout={{title: `${titleSymbol}`} }
         />
         }
       <form onSubmit={handleSubmit}>
