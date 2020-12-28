@@ -39,7 +39,7 @@
 
 .master-home-container{
   display: grid;
-  grid-template-columns: 20% 60% 20% 
+  grid-template-columns: 10% 80% 10% 
 }
 
 #user-info-div{
@@ -64,5 +64,9 @@
 }
 
 #stock-list-ul{
-  margin-top: 10%;
+  margin-top: 20%;
+}
+
+.ticker-card-li {
+  font-size: 8pt;
 }

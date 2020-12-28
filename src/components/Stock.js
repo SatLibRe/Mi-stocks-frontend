@@ -60,6 +60,7 @@ function Stock() {
           color={"#123abc"}
           /> 
         :
+        <div id='plot-div'>
         <Plot
         data={[
         {
@@ -72,6 +73,7 @@ function Stock() {
         ]}
         layout={{title: `${titleSymbol}`} }
         />
+        </div>
         }
       <form onSubmit={handleSubmit}>
         <label>
