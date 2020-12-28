@@ -13,14 +13,6 @@ function App() {
   console.log()
   const [backside, setBackside] = useState([])
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api/tutorials")
-    .then(response => response.json())
-    .then(response => {
-      console.log(response)
-    })
-  },[]);
-
   return (
     <div className="master-home-container">
       <UserInfo/>

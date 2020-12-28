@@ -19,7 +19,7 @@ function Stock() {
     }, []);
 
     const fetchStock = () => {
-        const apiCall = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${process.env.REACT_API_ALPHA_API_KEY}`
+        const apiCall = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=D0AZSV1R7TJHZJN2`
         fetch(apiCall)
         .then(response => response.json())
         .then(response => {
